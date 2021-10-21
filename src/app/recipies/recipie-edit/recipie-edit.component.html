@@ -1,0 +1,50 @@
+<div class = 'container'>
+<div class="row">
+    <div class="col-12">
+    <form [formGroup]="form" (ngSubmit) = 'onSubmit()'>
+            <button class = 'btn btn-success' type = 'submit'
+            [disabled] = '!form.valid'>save</button>
+            <button class="btn btn-danger" (click) = "onCancel()">cancel</button>
+        <div class="form-group">
+            <label for = 'name'>Name</label>
+            <input type = 'text' class = 'form-control' name = 'name' id = 'name' formControlName="name">
+            <label for = 'imagePath'>Image URL</label>
+            <input type = 'text' class = 'form-control' name = 'imagePath' id = 'imagePath' formControlName="imagePath"
+                #imagePath>  
+            <img [src] = "imagePath.value">
+        </div>
+        <div class = 'row'>
+            
+            <div class = 'col-12'> 
+                <label for = 'description'>Description</label>
+                <textarea class = 'form-control' id = 'description' formControlName="description">
+                </textarea>
+            </div>
+
+        </div>
+    <br/>
+
+        <div class = 'form-group' formArrayName="ingridients" >
+        
+        <div *ngFor = 'let ingridient of getIngridients();let i = index' [formGroupName]="i" >
+            
+            <input type = 'text' name = 'ingridient' form-control class = 'col-7' formControlName="name"> 
+            
+            <span class="col-1"></span>
+            <input type = 'number' name = 'numIngridients' form-control class = 'col-2' formControlName="amount">
+            <span class="col-1"></span>
+  
+            <button class = 'btn btn-danger' type = 'button' (click) = 'onDeleteIngridient(i)'>x</button>
+        </div>    
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <button class = 'btn btn-success' type = 'button'
+                (click) = "onAddIngridient()">ADD Ingridient</button>
+            </div>
+        </div>
+        </form>    
+    </div>
+</div>
+</div>

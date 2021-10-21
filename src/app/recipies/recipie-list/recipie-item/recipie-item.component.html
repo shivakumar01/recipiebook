@@ -1,0 +1,10 @@
+<ul class = "list-group">
+<li class = "list-group-item" [routerLink]="[id]" routerLinkActive="active" >
+    <div class = "float-left">
+        <h3>{{recipie.name}}</h3>
+        <p>{{recipie.description}}</p>
+    </div>
+    <span class = "float-right ml-5"> <img [src] = "recipie.imagePath" class = "img-fluid" style = "max-height:100px"> </span>
+ </li>
+</ul>
+

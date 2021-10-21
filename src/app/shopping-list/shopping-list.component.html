@@ -1,0 +1,13 @@
+
+<div class = "row">
+  <div class="col-sm-10">    
+    <app-shopping-edit (itemAddEvent) = "itemAddEvent($event)"></app-shopping-edit>
+    <hr/>
+    <ul class = "list-group">
+        <li class = "list-group-item" *ngFor="let ingridient of (ingridients|async).ingridients; let i = index"
+        (click) = "onEdit(i)"><a href = "#">{{ingridient.name}}({{ingridient.amount}})</a></li>
+    </ul>
+   </div>  
+</div>
+
+

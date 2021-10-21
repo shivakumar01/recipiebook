@@ -1,0 +1,21 @@
+
+<div class="row">
+    <div class="col-xs-12">
+        <button class = "btn btn-success" [routerLink]="['new']" routerLinkActive="router-link-active" >Add Recipie</button>
+    </div>
+</div>    
+<hr/>
+<div class="row">
+    <div class="col-xs-12">
+       
+        <app-recipie-item  *ngFor="let recipie of Recipies;index as i" [recipie] = "recipie" 
+        [id]="i" routerLinkActive="active"></app-recipie-item>
+     
+
+  
+    </div>
+</div>
+
+
+
+
